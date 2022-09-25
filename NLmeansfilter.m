@@ -7,9 +7,6 @@ function [output]=NLmeansfilter(input,t,f,h)
  %  f: ratio of similarity window
  %  h: degree of filtering
  %
- %  Author: Jose Vicente Manjon Herrera & Antoni Buades
- %  Date: 09-03-2006
- %
  %  Implementation of the Non local filter proposed for A. Buades, B. Coll and J.M. Morel in
  %  "A non-local algorithm for image denoising"
  %
