@@ -7,11 +7,7 @@ function [output]=NLmeansfilterPCC(input,t,f,h)
   %  f: ratio of similarity window
   %  h: degree of filtering
   %
-  %  Author: Jose Vicente Manjon Herrera & Antoni Buades
-  %  Date: 09-03-2006
-  %
-  %  Implementation of the Non local filter proposed for A. Buades, B. Coll and J.M. Morel in
-  %  "A non-local algorithm for image denoising"
+  %  Implementation of the Non local means filter using PCC
   %
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -54,13 +50,7 @@ function [output]=NLmeansfilterPCC(input,t,f,h)
           end
           W2= input2(r-f:r+f , s-f:s+f);
                      
-          % ImToPolar (kernel.*W2,0, 1, 3, 3);
-          % ImToPolar (kernel.*W1, 0, 1,3, 3);
-          % d = dist_fractional ( W1 , W2 , 2 );
-                     
           d = corr2(W1, W2);
-          % d1 = conv2(kernel, (W1-W2).*(W1-W2),'same');  
-          % d = sum(d1(:));
           
           w=exp(-d/h);    
           
