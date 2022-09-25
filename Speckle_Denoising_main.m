@@ -21,10 +21,10 @@ imtool(I3,[]);
 ssimval3 = ssim(I3,I);
 peaksnr3 = PSNR(I3,I);
 
-%I4 = bhattacharyaNLmeansfilter(I1,2,1, 20);
-%imtool(I4,[]);
-%ssimval4 = ssim(I4,I);
-%peaksnr4 = PSNR(I4,I);
+I4 = bhattacharyaNLmeansfilter(I1,2,1, 20);
+imtool(I4,[]);
+ssimval4 = ssim(I4,I);
+peaksnr4 = PSNR(I4,I);
 
 I5 = NLmeansMedianfilter(I1,3,2,1, 20);
 imtool(I5,[]);
