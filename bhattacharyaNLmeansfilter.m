@@ -7,11 +7,7 @@ function [output]=bhattacharyaNLmeansfilter(input,t,f,h)
  %  f: radio of similarity window
  %  h: degree of filtering
  %
- %  Author: Jose Vicente Manjon Herrera & Antoni Buades
- %  Date: 09-03-2006
- %
- %  Implementation of the Non local filter proposed for A. Buades, B. Coll and J.M. Morel in
- %  "A non-local algorithm for image denoising"
+ %  Implementation of the Non local means filter using Bhattacharyya distance
  %
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  % Size of the image
@@ -80,34 +76,13 @@ function [output]=bhattacharyaNLmeansfilter(input,t,f,h)
  
 
 function d=bhattacharyya(X1,X2)
-% BHATTACHARYYA  Bhattacharyya distance between two Gaussian classes
-%
-% d = bhattacharyya(X1,X2) returns the Bhattacharyya distance between X1 and X2.
+% Bhattacharyya distance between two distributions
 %
 % Inputs: X1 and X2 are n x m matrices represent two sets which have n
 %         samples and m variables.
 %
 % Output: d is the Bhattacharyya distance between these two sets of data.
-%
-% Example:
-%{
-N=100;
-M=10;
-e1=2;
-e2=5;
-c1=3;
-c2=7;
-X1 = c1*randn(N,M)+e1;
-X2 = c2*randn(N,M)+e2;
-d = bhattacharyya(X1,X2);
-%}
-% Reference:
-% Kailath, T., The Divergence and Bhattacharyya Distance Measures in Signal
-% Selection, IEEE Trasnactions on Communication Technology, Vol. 15, No. 1,
-% pp. 52-60, 1967
-%
-% By Yi Cao at Cranfield University on 8th Feb 2008.
-%
+
 %Check inputs and output
 error(nargchk(2,2,nargin));
 error(nargoutchk(0,1,nargout));
